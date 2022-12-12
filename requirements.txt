@@ -1,11 +1,11 @@
 streamlit==1.15.2
 streamlit-pandas-profiling==0.1.3
-pandas @ file:///C:/b/abs_cdcgk91igc/croots/recipe/pandas_1663772960432/work
+pandas==1.4.4
 pandas-profiling==3.5.0
-numpy @ file:///C:/ci/numpy_and_numpy_base_1653574844560/work
+numpy==1.21.5
 scikit-image==0.19.3
-scikit-learn @ file:///C:/ci/scikit-learn_1642617276183/work
+scikit-learn==1.0.2
 scikit-learn-intelex==2021.20221004.171935
 GitPython==3.1.29
-requests @ file:///C:/ci/requests_1657735342357/work
-cloudpickle @ file:///tmp/build/80754af9/cloudpickle_1632508026186/work
+requests==2.28.1
+pickle==4.0
