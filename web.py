@@ -2,13 +2,25 @@ import streamlit as st
 import pickle
 import requests 
 import pandas as pd
-from preparation import similarity as similarity_ndarray
+# from preparation import similarity as similarity_ndarray
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+
 api_key = '1cd00a14'
+
 
 
 tvshows_list = pickle.load(open('tvshows.pkl', 'rb'))
 # similarity = pickle.load(open('similarity2.pkl', 'rb'))
-similarity = similarity_ndarray
+
+def get_similarity(df):
+    cv = CountVectorizer(max_features=2000,stop_words='english')
+    vector = cv.fit_transform(df['tags']).toarray()
+    similarity  = cosine_similarity(vector)
+    return similarity
+    
+similarity = get_similarity(tvshows_list)
 st.title('Movies/TV Shows recommendation')
 
 selected_tvshow = st.selectbox(
@@ -17,6 +29,8 @@ selected_tvshow = st.selectbox(
 )
 
 mediadf = pickle.load(open('imdbid.pkl', 'rb'))
+
+
 
 def fetch_poster(name):
     id = mediadf[mediadf['title'] == name].iloc[0]['imdb_id']
