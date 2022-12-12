@@ -5,7 +5,6 @@ pandas-profiling==3.5.0
 numpy==1.21.5
 scikit-image==0.19.3
 scikit-learn==1.0.2
-scikit-learn-intelex==2021.20221004.171935
 GitPython==3.1.29
 requests==2.28.1
 pickle==4.0
